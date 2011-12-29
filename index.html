@@ -1,0 +1,149 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Kanji Review</title>
+  <meta name="description" content="Kanji review game">
+  <meta name="author" content="Nicolas Lupien">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <link rel="stylesheet" href="css/screen.css">
+
+  <script src="js/libs/modernizr-2.0.6.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Kanji Review</h1>
+    </header>
+
+    <hr />
+
+    <div role="main" id="main">
+      <div id="quiz"></div>
+      <div id="options"></div>
+    </div>
+
+    <hr />
+
+    <section id="help">
+      <h2>How does it works ?</h2>
+      <p>This is a simple application designed to review and learn japanese kanji.</p>
+
+      <h3>Cards</h3>
+      <p>You get a deck of cards showing the prononciation and you have to guess which kanji it is.</p>
+
+      <h3>Markers</h3>
+      <p>
+        You can mark your card to help you reviewing them. Use the markers as you like, they are only here to help you.
+        <ul>
+          <li><img src="images/star.png" /> Add to favorite
+          <li><img src="images/thumb_up.png" /> Mark as right
+          <li><img src="images/thumb_down.png" /> Mark as wrong
+        </ul>
+      </p>
+
+      <h3>Buttons</h3>
+      <p>
+        <ul>
+          <li><strong>&larr; Previous</strong> Show the previous card
+          <li><strong>Hint</strong> Show hint to help you guess the kanji
+          <li><strong>Answer</strong> Show the kanji
+          <li><strong>Next &rarr;</strong> Show the next card
+        </ul>
+      </p>
+
+      <h3>Options</h3>
+      <p>
+        <ul>
+          <li><strong>Go to first card</strong> Rewind the deck and show card number #1
+          <li><strong>Redraw cards</strong> Shuffle the current deck and show de first card
+          <li><strong>Reset</strong> Reset the application to it's initial state
+        </ul>
+      </p>
+
+      <h3>Show / Hide Cards</h3>
+      <p>This option let you show or hide cards marked with one of this marker : Favorite, right and wrong. Check those you want to see, others will be hidden.</p>
+
+      <h3>Credits</h3>
+      <ul>
+        <li><strong>Nicolas Lupien</strong> programming
+        <li><strong>Josée Savage</strong> cards redaction
+      </ul>
+      <h3>Toolbox</h3>
+      <ul>
+        <li>JQuery
+        <li>UnderscoreJS
+        <li>BackboneJS
+        <li>CoffeeScript
+        <li>Sass
+        <li>Compass
+      </ul>
+      <p>This application is Open Source and released under the GNU GPL Licence. Feel free to contribute : <a href="https://github.com/niclupien/Kanji-review">https://github.com/niclupien/Kanji-review</a></p>
+    </section>
+
+    <footer>
+      &copy; 2011 Nicolas Lupien
+    </footer>
+  </div>
+
+  <script id="quiz-view-tmpl" type="text/template">
+    <h2>Cards</h2>
+    <div id="deck">
+      <div id="index"><%= quizIndex %> / <%= quizLength %></div>
+      <h2 id="prononciation"><%= model.get("prononciation") %></h2>
+      <div id="icons">
+        <img src="images/star.png" id="favorite" title="Favorite" />
+        <img src="images/thumb_up.png" id="right" title="Right" />
+        <img src="images/thumb_down.png" id="wrong" title="Wrong" />
+        <img src="images/cross.png" id="hide" title="Remove" />
+      </div>
+      <div id="navigation">
+        <button id="previous">&larr; Previous</button>
+        <button id="hint">Hint</button>
+        <button id="answer">Answer</button>
+        <button id="next">Next &rarr;</button>
+      </div>
+    </div>
+  </script>
+
+  <script id="options-view-tmpl" type="text/template">
+    <h2>Options</h2>
+    <ul>
+      <li><button id="first">Go to first card</button>
+      <li><button id="shuffle">Redraw cards</button>
+      <li><button onclick="location.reload(true)">Reset</button>
+    </ul>
+    <br />
+    <h3>Show/Hide cards</h3>
+    <ul>
+      <li><input type="checkbox" checked="checked" id="favorites" /> <label for="favorites">Favorites</label>
+      <li><input type="checkbox" checked="checked" id="rights" /> Rights
+      <li><input type="checkbox" checked="checked" id="wrongs" /> Wrongs
+    </ul>
+  </script>
+
+  <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.1.min.js"><\/script>')</script>
+
+  <script src="js/libs/underscore.min.js"></script>
+  <script src="js/libs/backbone.min.js"></script>
+  <script src="js/app.js"></script>
+
+  <!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+</body>
+</html>

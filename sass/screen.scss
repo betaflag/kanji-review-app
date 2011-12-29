@@ -1,0 +1,56 @@
+@import "blueprint/reset";
+@import "partials/base";
+@import "blueprint";
+@import "blueprint/scaffolding";
+@import "compass/css3";
+
+@include blueprint-typography;
+@include blueprint-scaffolding;
+
+.container { @include container; }
+
+header { margin-top: 10px }
+footer { margin-top: 30px }
+
+#main { @include container; padding-bottom:15px }
+
+#quiz {
+  @include column(16);
+  #deck {
+    #index { 
+      text-align: right;
+      color: gray; 
+      font-weight: normal; 
+      font-size: 11pt;
+    }
+    #prononciation {
+      &.favorite { color: #E5C227 }
+      &.wrong { color: #E22B28 }
+      &.right { color: #24AA22 }
+    }
+    width: 95%;
+    margin: auto;
+    text-align: center;
+    @include box-shadow( 2px 3px 4px gray);
+    @include border-radius(4px);
+    border: 1px solid #E3E3E3;
+    padding: 5px;
+  }
+  #icons {
+    height: 40px;
+    img { margin-right: 5px; }
+    img:hover { cursor: pointer }
+  }
+}
+
+#options {
+  @include prepend(1);
+  @include column(7);
+  @include last;
+  ul { 
+    list-style-type: none; 
+    margin: 0; 
+    padding: 0; 
+    li { margin-top: 5px; }
+  }
+}
