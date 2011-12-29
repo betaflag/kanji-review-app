@@ -49,7 +49,7 @@ OptionView = Backbone.View.extend({
       ($("#favorites").is(":checked") && model.get("state") == "favorite") ||
       ($("#rights").is(":checked") && model.get("state") == "right") ||
       ($("#wrongs").is(":checked") && model.get("state") == "wrong") ||
-      model.get("state") == undefined
+      model.get("state") == false
     ))
     # Set the collection to the router and redraw deck
     quizRouter.collection = collection
