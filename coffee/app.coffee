@@ -2,6 +2,8 @@
 # Attributes : niveau, prononciation, kanji, hint
 # It also contains one state (favorite, right, wrong, undefined)
 QuizModel = Backbone.Model.extend({
+  initialize: -> this.set({"state": "normal"})
+
   # Set or remove a state
   toggleState: (state) ->
     state = undefined if this.get("state") == state
@@ -14,6 +16,8 @@ QuizCollection = Backbone.Collection.extend({
   model: QuizModel
   # URL of the json file containing all cards
   url: 'js/kanji-collection.json'
+
+  levels: -> _.uniq(this.invoke('get', 'niveau')).sort()
 })
 
 # This view allows the user to set options
@@ -22,16 +26,18 @@ OptionView = Backbone.View.extend({
   events: {
     "click #shuffle": "shuffleQuestions"
     "click #first": "firstQuestion"
-    "click #favorites": "changeStateDisplayed"
-    "click #rights": "changeStateDisplayed"
-    "click #wrongs": "changeStateDisplayed"
+    "click #favorite": "filterModels"
+    "click #right": "filterModels"
+    "click #wrong": "filterModels"
+    "click #normal": "filterModels"
+    "change #levels": "filterModels"
   }
 
   template: _.template($("#options-view-tmpl").html())
 
   el: "#options"
 
-  render: -> $(this.el).html(this.template())
+  render: -> $(this.el).html(this.template({ collection: quizRouter.collection }))
 
   # These actions only navigate to the correct route
   shuffleQuestions: -> quizRouter.navigate("questions/shuffle", true)
@@ -40,21 +46,18 @@ OptionView = Backbone.View.extend({
   # This action update the deck (collection) when a state
   # display is changed. The user can select to state to display wihtin
   # his favorites, rigts and wrongs cards.
-  changeStateDisplayed: ->
-    # Createa a new collection
-    collection = new QuizCollection
-    # Reset the collection with the models of the original collection
-    # filtered according to settings
-    collection.reset(quizCollection.filter((model) ->
-      ($("#favorites").is(":checked") && model.get("state") == "favorite") ||
-      ($("#rights").is(":checked") && model.get("state") == "right") ||
-      ($("#wrongs").is(":checked") && model.get("state") == "wrong") ||
-      model.get("state") == false
-    ))
-    # Set the collection to the router and redraw deck
-    quizRouter.collection = collection
-    quizRouter.navigate("questions/redraw", true)
+  filterModels: ->
+    levels = _.map($("#levels option:selected"), (option) -> $(option).attr('value'))
+    states = _.map($("#states input:checked"), (input) -> $(input).attr('id'))
 
+    # Filter model to selected states
+    models = _.filter(quizCollection.models, (model) ->
+      model.get('niveau').toString() in levels &&
+      model.get('state') in states
+    )
+
+    quizRouter.collection = new QuizCollection().reset(models)
+    quizRouter.navigate("questions/redraw", true)
 })
 
 # This view show a card of the quiz. It shows the pronociation of the
@@ -172,7 +175,8 @@ QuizRouter = Backbone.Router.extend({
     # Remove the old view and all it's bindings
     this.quizView.remove() if this.quizView != null
     # Render the new view with the new question
-    this.quizView = new QuizView({ model: this.collection.at(this.question) })
+    model = if this.collection.length > 0 then this.collection.at(this.question) else new QuizModel
+    this.quizView = new QuizView({ model: model })
     el = this.quizView.render()
     this.quizViewContainer.html(el)
 })
