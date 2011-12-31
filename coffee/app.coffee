@@ -95,7 +95,9 @@ QuizView = Backbone.View.extend({
 
   # Remove a question from the deck
   hideQuestion: ->
+    # remove from both collections
     quizCollection.remove(this.model)
+    collection.remove(this.model)
     quizRouter.navigate("questions/redraw", true)
 
   # Update the view according to the model state
