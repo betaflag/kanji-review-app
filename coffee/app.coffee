@@ -57,7 +57,7 @@ OptionView = Backbone.View.extend({
     )
 
     quizRouter.collection = new QuizCollection().reset(models)
-    quizRouter.navigate("questions/redraw", true)
+    quizRouter.navigate("questions/first", true)
 })
 
 # This view show a card of the quiz. It shows the pronociation of the

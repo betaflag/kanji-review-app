@@ -60,7 +60,7 @@
         return (_ref = model.get('niveau').toString(), __indexOf.call(levels, _ref) >= 0) && (_ref2 = model.get('state'), __indexOf.call(states, _ref2) >= 0);
       });
       quizRouter.collection = new QuizCollection().reset(models);
-      return quizRouter.navigate("questions/redraw", true);
+      return quizRouter.navigate("questions/first", true);
     }
   });
 
