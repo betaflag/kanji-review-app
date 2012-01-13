@@ -79,7 +79,6 @@ QuizView = Backbone.View.extend({
     "click #favorite": "toggleFavorite"
     "click #right": "toggleRight"
     "click #wrong": "toggleWrong"
-    "click #hide": "hideQuestion"
   }
 
   template: _.template($('#quiz-view-tmpl').html())
@@ -94,13 +93,6 @@ QuizView = Backbone.View.extend({
     # When the template is rendered, we need to show his state
     this.updateState()
     return this.el
-
-  # Remove a question from the deck
-  hideQuestion: ->
-    # remove from both collections
-    quizCollection.remove(this.model)
-    collection.remove(this.model)
-    quizRouter.navigate("questions/redraw", true)
 
   # Update the view according to the model state
   updateState: ->

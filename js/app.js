@@ -81,8 +81,7 @@
       "click #last": "lastQuestion",
       "click #favorite": "toggleFavorite",
       "click #right": "toggleRight",
-      "click #wrong": "toggleWrong",
-      "click #hide": "hideQuestion"
+      "click #wrong": "toggleWrong"
     },
     template: _.template($('#quiz-view-tmpl').html()),
     render: function() {
@@ -93,11 +92,6 @@
       }));
       this.updateState();
       return this.el;
-    },
-    hideQuestion: function() {
-      quizCollection.remove(this.model);
-      collection.remove(this.model);
-      return quizRouter.navigate("questions/redraw", true);
     },
     updateState: function() {
       $(this.el).children("#deck").children("#prononciation").removeClass();
