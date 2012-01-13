@@ -33,7 +33,7 @@ h2, h3, h4 {
   color: #C9332A;
 }
 
-footer { margin-top: 30px }
+footer { margin: 70px 0 30px; text-align: center; color: gray; }
 
 #main {
   @include container;
