@@ -25,7 +25,7 @@ h1 {
   font-family: "Blooming Grove";
   color: #C9332A;
   font-size: 45pt;
-  @include text-shadow(2px 1px 1px gray);
+  @include text-shadow(1px 2px 1px gray);
 }
 
 h2, h3, h4 {
