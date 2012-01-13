@@ -16,6 +16,19 @@
   <link rel="stylesheet" href="css/screen.css">
 
   <script src="js/libs/modernizr-2.0.6.min.js"></script>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27989042-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+   var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+   ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+   })();
+
+  </script>
 </head>
 
 <body>
@@ -24,14 +37,10 @@
       <h1>kanji review</h1>
     </header>
 
-    <hr />
-
     <div role="main" id="main">
       <div id="quiz"></div>
       <div id="options"></div>
     </div>
-
-    <hr />
 
     <section id="help">
       <h2>How does it work ?</h2>
@@ -136,10 +145,10 @@
     <br /><br />
     <h3>Show/Hide cards</h3>
     <ul id="states">
-      <li><input type="checkbox" checked="checked" id="favorite" /> <label for="favorites">Favorites</label>
-      <li><input type="checkbox" checked="checked" id="right" /> <label for="rights">Rights</label>
-      <li><input type="checkbox" checked="checked" id="wrong" /> <label for="wrongs">Wrongs</label>
-      <li><input type="checkbox" checked="checked" id="normal" /> <label for="others">Others</label>
+      <li><label for="favorites">Favorites</label> <input type="checkbox" checked="checked" id="favorite" />
+      <li><label for="rights">Rights</label> <input type="checkbox" checked="checked" id="right" />
+      <li><label for="wrongs">Wrongs</label> <input type="checkbox" checked="checked" id="wrong" />
+      <li><label for="others">Others</label> <input type="checkbox" checked="checked" id="normal" />
     </ul>
   </script>
 

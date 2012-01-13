@@ -16,19 +16,15 @@ body { background: #E0E0E0 url('../images/bg.png')}
 
 header { 
   @include border-bottom-radius(9px);
-  border: 2px solid darken(#C9332A, 10%);
-  border-top: none;
   padding: 30px 0 20px;
-  margin-bottom: 20px;
-  background: #C9332A url('../images/header.png');
+  margin-bottom: 30px;
   text-align: center;
 }
 
 h1 {
   font-family: "Blooming Grove";
-  //text-decoration: underline;
-  color: white;
-  font-size: 40pt;
+  color: #C9332A;
+  font-size: 45pt;
 }
 
 h2, h3, h4 {
@@ -43,8 +39,12 @@ footer { margin-top: 30px }
   padding-bottom:15px;
 }
 
+#help {
+  margin-top: 70px;
+}
+
 #quiz {
-  @include column(16);
+  @include column(18);
   #deck {
     #index { 
       text-align: right;
@@ -80,9 +80,9 @@ footer { margin-top: 30px }
 }
 
 #options {
-  @include prepend(1);
-  @include column(7);
+  @include column(6);
   @include last;
+  text-align: right;
   ul { 
     list-style-type: none; 
     margin: 0; 

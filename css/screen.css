@@ -333,8 +333,8 @@ caption {
 
 /* line 45, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.7/frameworks/blueprint/stylesheets/blueprint/_scaffolding.scss */
 .colborder {
-  padding-right: 24px;
-  margin-right: 25px;
+  padding-right: 19px;
+  margin-right: 20px;
   border-right: 1px solid #dddddd;
 }
 
@@ -376,7 +376,7 @@ form.inline p {
 
 /* line 12, ../sass/screen.scss */
 .container {
-  width: 950px;
+  width: 700px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
@@ -474,39 +474,41 @@ header {
   -ms-border-bottom-right-radius: 9px;
   -khtml-border-bottom-right-radius: 9px;
   border-bottom-right-radius: 9px;
-  border: 2px solid #9f2821;
-  border-top: none;
   padding: 30px 0 20px;
-  margin-bottom: 20px;
-  background: #c9332a url("../images/header.png");
+  margin-bottom: 30px;
   text-align: center;
 }
 
-/* line 27, ../sass/screen.scss */
+/* line 24, ../sass/screen.scss */
 h1 {
   font-family: "Blooming Grove";
-  color: white;
-  font-size: 40pt;
+  color: #C9332A;
+  font-size: 45pt;
 }
 
-/* line 34, ../sass/screen.scss */
+/* line 30, ../sass/screen.scss */
 h2, h3, h4 {
   font-family: "Blooming Grove";
   color: #5A9E2C;
 }
 
-/* line 39, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 footer {
   margin-top: 30px;
 }
 
-/* line 41, ../sass/screen.scss */
+/* line 37, ../sass/screen.scss */
 #main {
-  width: 950px;
+  width: 700px;
   margin: 0 auto;
   overflow: hidden;
   *zoom: 1;
   padding-bottom: 15px;
+}
+
+/* line 42, ../sass/screen.scss */
+#help {
+  margin-top: 70px;
 }
 
 /* line 46, ../sass/screen.scss */
@@ -514,7 +516,7 @@ footer {
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 630px;
+  width: 522.5px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.7/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #quiz {
@@ -583,12 +585,12 @@ footer {
 
 /* line 82, ../sass/screen.scss */
 #options {
-  padding-left: 40px;
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 270px;
+  width: 167.5px;
   margin-right: 0;
+  text-align: right;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.7/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
 * html #options {
