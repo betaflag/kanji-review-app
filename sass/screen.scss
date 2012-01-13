@@ -10,7 +10,7 @@
 @include blueprint-scaffolding;
 
 .container { @include container; }
-button { @include fancy-button(#5A9E2C, 12px); }
+button { @include fancy-button(#575757, 12px); }
 
 body { background: #E0E0E0 url('../images/bg.png')}
 
@@ -25,11 +25,12 @@ h1 {
   font-family: "Blooming Grove";
   color: #C9332A;
   font-size: 45pt;
+  @include text-shadow(2px 1px 1px gray);
 }
 
 h2, h3, h4 {
   font-family: "Blooming Grove";
-  color: #5A9E2C;
+  color: #C9332A;
 }
 
 footer { margin-top: 30px }
@@ -89,4 +90,5 @@ footer { margin-top: 30px }
     padding: 0; 
     li { margin-top: 5px; }
   }
+  #levels { height: 115px; }
 }
