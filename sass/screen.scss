@@ -3,24 +3,32 @@
 @import "blueprint";
 @import "blueprint/scaffolding";
 @import "compass/css3";
+@import "fancy-buttons";
 
-@include font-face("Abite", font-files("ABITE.ttf", truetype));
 @include font-face("Blooming Grove", font-files("bgrove.ttf", truetype, "bgrovbe.otf", opentype));
 @include blueprint-typography;
 @include blueprint-scaffolding;
 
 .container { @include container; }
+button { @include fancy-button(#5A9E2C, 12px); }
 
-body { background: #E0E0E0 }
+body { background: #E0E0E0 url('../images/bg.png')}
 
 header { 
-  margin: 30px 0 60px;
+  @include border-bottom-radius(9px);
+  border: 2px solid darken(#C9332A, 10%);
+  border-top: none;
+  padding: 30px 0 20px;
+  margin-bottom: 20px;
+  background: #C9332A url('../images/header.png');
   text-align: center;
 }
 
 h1 {
-  font-family: "Abite";
-  color: #C9332A;
+  font-family: "Blooming Grove";
+  //text-decoration: underline;
+  color: white;
+  font-size: 40pt;
 }
 
 h2, h3, h4 {
@@ -45,7 +53,8 @@ footer { margin-top: 30px }
       font-size: 11pt;
     }
     #prononciation {
-      margin: 50px 0 70px;
+      margin: 70px 0;
+      font-size: 35px;
       &.favorite { color: #E5C227 }
       &.wrong { color: #E22B28 }
       &.right { color: #24AA22 }
@@ -58,6 +67,10 @@ footer { margin-top: 30px }
     @include border-radius(4px);
     border: 1px solid #E3E3E3;
     padding: 5px;
+  }
+  #deck-options {
+    margin: 20px auto 0;
+    text-align: center;
   }
   #icons {
     height: 40px;

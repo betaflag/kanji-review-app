@@ -21,7 +21,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>KANJI review</h1>
+      <h1>kanji review</h1>
     </header>
 
     <hr />
@@ -102,7 +102,9 @@
   <script id="quiz-view-tmpl" type="text/template">
     <div id="deck">
       <div id="index"><%= quizIndex %> / <%= quizLength %></div>
-      <h2 id="prononciation"><%= model.get("prononciation") %></h2>
+      <div id="prononciation"><%= model.get("prononciation") %></div>
+    </div>
+    <div id="deck-options">
       <div id="icons">
         <img src="images/star.png" id="favorite" title="Favorite" />
         <img src="images/thumb_up.png" id="right" title="Right" />

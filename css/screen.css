@@ -57,9 +57,28 @@ a img {
   border: none;
 }
 
-@font-face {
-  font-family: "Abite";
-  src: url('fonts/ABITE.ttf') format('truetype');
+/* incase an inverted custom gradient isn't specified */
+/* line 177, ../../../.rvm/gems/ruby-1.9.2-p290/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+.fancy-button-reset-base-class, button {
+  font-family: "Lucida Grande", Lucida, Arial, sans-serif;
+  background: url('../images/button_bg.png?1326471923') repeat-x bottom left;
+  margin: 0;
+  width: auto;
+  overflow: visible;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  border-style: solid;
+  font-weight: bold;
+}
+/* line 165, ../../../.rvm/gems/ruby-1.9.2-p290/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+.fancy-button-reset-base-class::-moz-focus-inner, button::-moz-focus-inner {
+  border: none;
+  padding: 0;
+}
+/* line 168, ../../../.rvm/gems/ruby-1.9.2-p290/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+.fancy-button-reset-base-class:focus, button:focus {
+  outline: none;
 }
 
 @font-face {
@@ -363,35 +382,125 @@ form.inline p {
   *zoom: 1;
 }
 
-/* line 14, ../sass/screen.scss */
-body {
-  background: #E0E0E0;
+/* line 13, ../sass/screen.scss */
+button {
+  -moz-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -o-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -khtml-border-radius: 6px;
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.2em;
+  padding: 0.3em 1em;
+  border-width: 1px;
+  background-color: #52c604;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #b2e192), color-stop(10%, #7fcd4a), color-stop(50%, #539229), color-stop(50%, #4c8625), color-stop(100%, #63ae30));
+  background-image: -webkit-linear-gradient(#b2e192, #7fcd4a 10%, #539229 50%, #4c8625 50%, #63ae30);
+  background-image: -moz-linear-gradient(#b2e192, #7fcd4a 10%, #539229 50%, #4c8625 50%, #63ae30);
+  background-image: -o-linear-gradient(#b2e192, #7fcd4a 10%, #539229 50%, #4c8625 50%, #63ae30);
+  background-image: -ms-linear-gradient(#b2e192, #7fcd4a 10%, #539229 50%, #4c8625 50%, #63ae30);
+  background-image: linear-gradient(#b2e192, #7fcd4a 10%, #539229 50%, #4c8625 50%, #63ae30);
+  border-color: #38621b;
+  text-shadow: #1e4901 0px 1px 1px;
+  -moz-box-shadow: rgba(255, 255, 255, 0.396) 0 0 0.1em 1px inset;
+  -webkit-box-shadow: rgba(255, 255, 255, 0.396) 0 0 0.1em 1px inset;
+  -o-box-shadow: rgba(255, 255, 255, 0.396) 0 0 0.1em 1px inset;
+  box-shadow: rgba(255, 255, 255, 0.396) 0 0 0.1em 1px inset;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding;
+  -o-background-clip: padding-box;
+  -ms-background-clip: padding-box;
+  -khtml-background-clip: padding-box;
+  background-clip: padding-box;
+}
+/* line 116, ../../../.rvm/gems/ruby-1.9.2-p290/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button, button:visited {
+  color: white;
+}
+/* line 31, ../../../.rvm/gems/ruby-1.9.2-p290/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button:hover, button:focus {
+  background-color: #4cb703;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #a9dd86), color-stop(10%, #76c93e), color-stop(50%, #4c8625), color-stop(50%, #467a22), color-stop(100%, #5ca22d));
+  background-image: -webkit-linear-gradient(#a9dd86, #76c93e 10%, #4c8625 50%, #467a22 50%, #5ca22d);
+  background-image: -moz-linear-gradient(#a9dd86, #76c93e 10%, #4c8625 50%, #467a22 50%, #5ca22d);
+  background-image: -o-linear-gradient(#a9dd86, #76c93e 10%, #4c8625 50%, #467a22 50%, #5ca22d);
+  background-image: -ms-linear-gradient(#a9dd86, #76c93e 10%, #4c8625 50%, #467a22 50%, #5ca22d);
+  background-image: linear-gradient(#a9dd86, #76c93e 10%, #4c8625 50%, #467a22 50%, #5ca22d);
+  border-color: #315618;
+  text-shadow: #183a01 0px 1px 1px;
+}
+/* line 116, ../../../.rvm/gems/ruby-1.9.2-p290/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button:hover, button:hover:visited, button:focus, button:focus:visited {
+  color: white;
+}
+/* line 36, ../../../.rvm/gems/ruby-1.9.2-p290/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button:active {
+  background-color: #46a803;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #4c8625), color-stop(30%, #518e28), color-stop(50%, #487e23), color-stop(50%, #417220), color-stop(100%, #5fa62e));
+  background-image: -webkit-linear-gradient(#4c8625, #518e28 30%, #487e23 50%, #417220 50%, #5fa62e);
+  background-image: -moz-linear-gradient(#4c8625, #518e28 30%, #487e23 50%, #417220 50%, #5fa62e);
+  background-image: -o-linear-gradient(#4c8625, #518e28 30%, #487e23 50%, #417220 50%, #5fa62e);
+  background-image: -ms-linear-gradient(#4c8625, #518e28 30%, #487e23 50%, #417220 50%, #5fa62e);
+  background-image: linear-gradient(#4c8625, #518e28 30%, #487e23 50%, #417220 50%, #5fa62e);
+  border-color: #2a4a15;
+  text-shadow: #122b01 0px -1px -1px;
+  -moz-box-shadow: #38621b 0 0.08em 0.2em 1px inset;
+  -webkit-box-shadow: #38621b 0 0.08em 0.2em 1px inset;
+  -o-box-shadow: #38621b 0 0.08em 0.2em 1px inset;
+  box-shadow: #38621b 0 0.08em 0.2em 1px inset;
+}
+/* line 116, ../../../.rvm/gems/ruby-1.9.2-p290/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button:active, button:active:visited {
+  color: white;
 }
 
-/* line 16, ../sass/screen.scss */
+/* line 15, ../sass/screen.scss */
+body {
+  background: #e0e0e0 url("../images/bg.png");
+}
+
+/* line 17, ../sass/screen.scss */
 header {
-  margin: 30px 0 60px;
+  -moz-border-radius-bottomleft: 9px;
+  -webkit-border-bottom-left-radius: 9px;
+  -o-border-bottom-left-radius: 9px;
+  -ms-border-bottom-left-radius: 9px;
+  -khtml-border-bottom-left-radius: 9px;
+  border-bottom-left-radius: 9px;
+  -moz-border-radius-bottomright: 9px;
+  -webkit-border-bottom-right-radius: 9px;
+  -o-border-bottom-right-radius: 9px;
+  -ms-border-bottom-right-radius: 9px;
+  -khtml-border-bottom-right-radius: 9px;
+  border-bottom-right-radius: 9px;
+  border: 2px solid #9f2821;
+  border-top: none;
+  padding: 30px 0 20px;
+  margin-bottom: 20px;
+  background: #c9332a url("../images/header.png");
   text-align: center;
 }
 
-/* line 21, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 h1 {
-  font-family: "Abite";
-  color: #C9332A;
+  font-family: "Blooming Grove";
+  color: white;
+  font-size: 40pt;
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 h2, h3, h4 {
   font-family: "Blooming Grove";
   color: #5A9E2C;
 }
 
-/* line 31, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
 footer {
   margin-top: 30px;
 }
 
-/* line 33, ../sass/screen.scss */
+/* line 41, ../sass/screen.scss */
 #main {
   width: 950px;
   margin: 0 auto;
@@ -400,7 +509,7 @@ footer {
   padding-bottom: 15px;
 }
 
-/* line 38, ../sass/screen.scss */
+/* line 46, ../sass/screen.scss */
 #quiz {
   display: inline;
   float: left;
@@ -411,7 +520,7 @@ footer {
 * html #quiz {
   overflow-x: hidden;
 }
-/* line 40, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 #quiz #deck {
   background: white;
   width: 95%;
@@ -430,43 +539,49 @@ footer {
   border: 1px solid #E3E3E3;
   padding: 5px;
 }
-/* line 41, ../sass/screen.scss */
+/* line 49, ../sass/screen.scss */
 #quiz #deck #index {
   text-align: right;
   color: gray;
   font-weight: normal;
   font-size: 11pt;
 }
-/* line 47, ../sass/screen.scss */
+/* line 55, ../sass/screen.scss */
 #quiz #deck #prononciation {
-  margin: 50px 0 70px;
+  margin: 70px 0;
+  font-size: 35px;
 }
-/* line 49, ../sass/screen.scss */
+/* line 58, ../sass/screen.scss */
 #quiz #deck #prononciation.favorite {
   color: #E5C227;
 }
-/* line 50, ../sass/screen.scss */
+/* line 59, ../sass/screen.scss */
 #quiz #deck #prononciation.wrong {
   color: #E22B28;
 }
-/* line 51, ../sass/screen.scss */
+/* line 60, ../sass/screen.scss */
 #quiz #deck #prononciation.right {
   color: #24AA22;
 }
-/* line 62, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
+#quiz #deck-options {
+  margin: 20px auto 0;
+  text-align: center;
+}
+/* line 75, ../sass/screen.scss */
 #quiz #icons {
   height: 40px;
 }
-/* line 64, ../sass/screen.scss */
+/* line 77, ../sass/screen.scss */
 #quiz #icons img {
   margin-right: 5px;
 }
-/* line 65, ../sass/screen.scss */
+/* line 78, ../sass/screen.scss */
 #quiz #icons img:hover {
   cursor: pointer;
 }
 
-/* line 69, ../sass/screen.scss */
+/* line 82, ../sass/screen.scss */
 #options {
   padding-left: 40px;
   display: inline;
@@ -479,13 +594,13 @@ footer {
 * html #options {
   overflow-x: hidden;
 }
-/* line 73, ../sass/screen.scss */
+/* line 86, ../sass/screen.scss */
 #options ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-/* line 77, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 #options ul li {
   margin-top: 5px;
 }
