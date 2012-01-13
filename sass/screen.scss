@@ -4,15 +4,36 @@
 @import "blueprint/scaffolding";
 @import "compass/css3";
 
+@include font-face("Abite", font-files("ABITE.ttf", truetype));
+@include font-face("Blooming Grove", font-files("bgrove.ttf", truetype, "bgrovbe.otf", opentype));
 @include blueprint-typography;
 @include blueprint-scaffolding;
 
 .container { @include container; }
 
-header { margin-top: 10px }
+body { background: #E0E0E0 }
+
+header { 
+  margin: 30px 0 60px;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Abite";
+  color: #C9332A;
+}
+
+h2, h3, h4 {
+  font-family: "Blooming Grove";
+  color: #5A9E2C;
+}
+
 footer { margin-top: 30px }
 
-#main { @include container; padding-bottom:15px }
+#main {
+  @include container;
+  padding-bottom:15px;
+}
 
 #quiz {
   @include column(16);
@@ -24,10 +45,12 @@ footer { margin-top: 30px }
       font-size: 11pt;
     }
     #prononciation {
+      margin: 50px 0 70px;
       &.favorite { color: #E5C227 }
       &.wrong { color: #E22B28 }
       &.right { color: #24AA22 }
     }
+    background: white;
     width: 95%;
     margin: auto;
     text-align: center;
