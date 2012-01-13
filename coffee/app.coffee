@@ -8,6 +8,8 @@ QuizModel = Backbone.Model.extend({
   toggleState: (state) ->
     state = undefined if this.get("state") == state
     this.set({"state": state})
+
+  level: -> parseInt(this.get("niveau"))
 })
 
 # This collection is like a deck of cards. 
@@ -17,7 +19,7 @@ QuizCollection = Backbone.Collection.extend({
   # URL of the json file containing all cards
   url: 'js/kanji-collection.json'
 
-  levels: -> _.uniq(this.invoke('get', 'niveau')).sort()
+  levels: -> _.uniq(this.invoke('level')).sort((a, b) -> a - b)
 })
 
 # This view allows the user to set options

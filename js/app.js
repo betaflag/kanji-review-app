@@ -13,6 +13,9 @@
       return this.set({
         "state": state
       });
+    },
+    level: function() {
+      return parseInt(this.get("niveau"));
     }
   });
 
@@ -20,7 +23,9 @@
     model: QuizModel,
     url: 'js/kanji-collection.json',
     levels: function() {
-      return _.uniq(this.invoke('get', 'niveau')).sort();
+      return _.uniq(this.invoke('level')).sort(function(a, b) {
+        return a - b;
+      });
     }
   });
 
@@ -91,6 +96,7 @@
     },
     hideQuestion: function() {
       quizCollection.remove(this.model);
+      collection.remove(this.model);
       return quizRouter.navigate("questions/redraw", true);
     },
     updateState: function() {
