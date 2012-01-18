@@ -47,10 +47,10 @@
       }));
     },
     shuffleQuestions: function() {
-      return quizRouter.navigate("questions/shuffle", true);
+      return quizRouter.shuffleQuestion();
     },
     firstQuestion: function() {
-      return quizRouter.navigate("questions/first", true);
+      return quizRouter.firstQuestion();
     },
     filterModels: function() {
       var levels, models, states;
@@ -78,7 +78,6 @@
       "click #answer": "showAnswer",
       "click #previous": "previousQuestion",
       "click #next": "nextQuestion",
-      "click #last": "lastQuestion",
       "click #favorite": "toggleFavorite",
       "click #right": "toggleRight",
       "click #wrong": "toggleWrong"
@@ -106,13 +105,10 @@
       return alert(this.model.get("kanji"));
     },
     previousQuestion: function() {
-      return quizRouter.navigate("questions/previous", true);
+      return quizRouter.previousQuestion();
     },
     nextQuestion: function() {
-      return quizRouter.navigate("questions/next", true);
-    },
-    lastQuestion: function() {
-      return quizRouter.navigate("questions/last", true);
+      return quizRouter.nextQuestion();
     },
     toggleFavorite: function() {
       return this.model.toggleState("favorite");

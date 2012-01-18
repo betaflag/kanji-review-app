@@ -42,8 +42,8 @@ OptionView = Backbone.View.extend({
   render: -> $(this.el).html(this.template({ collection: quizRouter.collection }))
 
   # These actions only navigate to the correct route
-  shuffleQuestions: -> quizRouter.navigate("questions/shuffle", true)
-  firstQuestion: -> quizRouter.navigate("questions/first", true)
+  shuffleQuestions: -> quizRouter.shuffleQuestion()
+  firstQuestion: -> quizRouter.firstQuestion()
 
   # This action update the deck (collection) when a state
   # display is changed. The user can select to state to display wihtin
@@ -75,7 +75,6 @@ QuizView = Backbone.View.extend({
     "click #answer": "showAnswer"
     "click #previous": "previousQuestion"
     "click #next": "nextQuestion"
-    "click #last": "lastQuestion"
     "click #favorite": "toggleFavorite"
     "click #right": "toggleRight"
     "click #wrong": "toggleWrong"
@@ -107,9 +106,8 @@ QuizView = Backbone.View.extend({
   # Show the answer (the kanji)
   showAnswer: -> alert(this.model.get("kanji"))
   # Navigate to the correct routes
-  previousQuestion: -> quizRouter.navigate("questions/previous", true)
-  nextQuestion: -> quizRouter.navigate("questions/next", true)
-  lastQuestion: -> quizRouter.navigate("questions/last", true)
+  previousQuestion: -> quizRouter.previousQuestion()
+  nextQuestion: -> quizRouter.nextQuestion()
   # Toggle for model states
   toggleFavorite: -> this.model.toggleState("favorite")
   toggleRight: -> this.model.toggleState("right")
