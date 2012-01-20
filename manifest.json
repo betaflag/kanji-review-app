@@ -1,0 +1,12 @@
+{
+  "name": "Kanji-review",
+  "version": "1.3",
+  "description": "This is a simple application designed to review and learn japanese kanji.",
+  "app": {
+    "launch": {
+      "local_path": "index.html"
+    }
+  },
+  "offline_enabled": true
+  
+}
