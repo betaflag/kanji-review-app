@@ -72,6 +72,7 @@
   QuizView = Backbone.View.extend({
     initialize: function() {
       this.options.model.bind("change:state", this.updateState, this);
+      _.bindAll(this, 'keypress');
       return $(document).bind('keypress', this.keypress);
     },
     events: {
@@ -94,16 +95,24 @@
       return this.el;
     },
     keypress: function(event) {
-      console.log(event.which);
+      event.preventDefault();
+      event.stopImmediatePropagation();
       switch (event.which) {
         case 32:
-          event.preventDefault();
-          $("#answer").slideDown("slow");
-          return $("#showAnswer").attr("disabled", "disabled");
+          if ($("#answer").is(":visible")) {
+            return this.nextQuestion();
+          } else {
+            return this.showAnswer();
+          }
+          break;
         case 104:
-          event.preventDefault();
-          $("#hint .inner").fadeIn("slow");
-          return $("#showHint").attr("disabled", "disabled");
+          return this.showHint();
+      }
+      switch (event.keyCode) {
+        case 39:
+          return this.nextQuestion();
+        case 37:
+          return this.previousQuestion();
       }
     },
     updateState: function() {

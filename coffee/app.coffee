@@ -69,8 +69,8 @@ QuizView = Backbone.View.extend({
   initialize: ->
     # When the model state is changed, redraw the view
     this.options.model.bind("change:state", this.updateState, this)
-    #_.bindAll(this, 'on_keypress');
-    $(document).bind('keypress', this.keypress);
+    _.bindAll(this, 'keypress')
+    $(document).bind('keypress', this.keypress)
 
   events: {
     "click #showHint": "showHint"
@@ -96,17 +96,22 @@ QuizView = Backbone.View.extend({
     return this.el
 
   keypress: (event) ->
-    console.log(event.which)
+    event.preventDefault()
+    event.stopImmediatePropagation()
+
     switch(event.which)
-      when 32
-        event.preventDefault()
-        $("#answer").slideDown("slow")
-        $("#showAnswer").attr("disabled", "disabled")
-        #this.showAnswer()
-      when 104
-        event.preventDefault()
-        $("#hint .inner").fadeIn("slow")
-        $("#showHint").attr("disabled", "disabled")
+      when 32 # Space Bar
+        if ($("#answer").is(":visible"))
+          return this.nextQuestion()
+        else
+          return this.showAnswer()
+      when 104 # 'h'
+        return this.showHint()
+    
+    switch(event.keyCode)
+      when 39 then this.nextQuestion()
+      when 37 then this.previousQuestion()
+
 
   # Update the view according to the model state
   updateState: ->
