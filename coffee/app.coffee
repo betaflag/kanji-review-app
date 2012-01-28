@@ -103,7 +103,7 @@ QuizView = Backbone.View.extend({
 
   # Show a hint for the kanji
   showHint: -> 
-    $("#hint").slideDown("slow")
+    $("#hint .inner").fadeIn("slow")
     $("#showHint").attr("disabled", "disabled")
   # Show the answer (the kanji)
   showAnswer: -> 

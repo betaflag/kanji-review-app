@@ -99,7 +99,7 @@
       }
     },
     showHint: function() {
-      $("#hint").slideDown("slow");
+      $("#hint .inner").fadeIn("slow");
       return $("#showHint").attr("disabled", "disabled");
     },
     showAnswer: function() {
