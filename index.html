@@ -116,7 +116,9 @@
   <script id="quiz-view-tmpl" type="text/template">
     <div id="deck">
       <div id="index"><%= quizIndex %> / <%= quizLength %></div>
+      <div id="answer"><%= model.get("kanji") %></div>
       <div id="prononciation"><%= model.get("prononciation") %></div>
+      <div id="hint"><%= model.get("hint") %></div>
     </div>
     <div id="deck-options">
       <div id="icons">
@@ -126,8 +128,8 @@
       </div>
       <div id="navigation">
         <button id="previous">&larr; Previous</button>
-        <button id="hint">Hint</button>
-        <button id="answer">Answer</button>
+        <button id="showHint">Hint</button>
+        <button id="showAnswer">Answer</button>
         <button id="next">Next &rarr;</button>
       </div>
     </div>

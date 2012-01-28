@@ -71,8 +71,8 @@ QuizView = Backbone.View.extend({
     this.options.model.bind("change:state", this.updateState, this)
 
   events: {
-    "click #hint": "showHint"
-    "click #answer": "showAnswer"
+    "click #showHint": "showHint"
+    "click #showAnswer": "showAnswer"
     "click #previous": "previousQuestion"
     "click #next": "nextQuestion"
     "click #favorite": "toggleFavorite"
@@ -102,9 +102,13 @@ QuizView = Backbone.View.extend({
       $(this.el).children("#deck").children("#prononciation").addClass(this.model.get("state"))
 
   # Show a hint for the kanji
-  showHint: -> alert(this.model.get("hint"))
+  showHint: -> 
+    $("#hint").slideDown("slow")
+    $("#showHint").attr("disabled", "disabled")
   # Show the answer (the kanji)
-  showAnswer: -> alert(this.model.get("kanji"))
+  showAnswer: -> 
+    $("#answer").slideDown("slow")
+    $("#showAnswer").attr("disabled", "disabled")
   # Navigate to the correct routes
   previousQuestion: -> quizRouter.previousQuestion()
   nextQuestion: -> quizRouter.nextQuestion()

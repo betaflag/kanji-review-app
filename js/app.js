@@ -74,8 +74,8 @@
       return this.options.model.bind("change:state", this.updateState, this);
     },
     events: {
-      "click #hint": "showHint",
-      "click #answer": "showAnswer",
+      "click #showHint": "showHint",
+      "click #showAnswer": "showAnswer",
       "click #previous": "previousQuestion",
       "click #next": "nextQuestion",
       "click #favorite": "toggleFavorite",
@@ -99,10 +99,12 @@
       }
     },
     showHint: function() {
-      return alert(this.model.get("hint"));
+      $("#hint").slideDown("slow");
+      return $("#showHint").attr("disabled", "disabled");
     },
     showAnswer: function() {
-      return alert(this.model.get("kanji"));
+      $("#answer").slideDown("slow");
+      return $("#showAnswer").attr("disabled", "disabled");
     },
     previousQuestion: function() {
       return quizRouter.previousQuestion();

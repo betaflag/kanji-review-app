@@ -374,7 +374,7 @@ form.inline p {
   margin-bottom: 0;
 }
 
-/* line 12, ../sass/screen.scss */
+/* line 14, ../sass/screen.scss */
 .container {
   width: 700px;
   margin: 0 auto;
@@ -382,7 +382,7 @@ form.inline p {
   *zoom: 1;
 }
 
-/* line 13, ../sass/screen.scss */
+/* line 15, ../sass/screen.scss */
 button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -454,13 +454,36 @@ button:active {
 button:active, button:active:visited {
   color: white;
 }
+/* line 47, ../../../.rvm/gems/ruby-1.9.2-p290/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button.disabled, button[disabled] {
+  background-color: #575757;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ababab), color-stop(10%, #7d7d7d), color-stop(50%, #4f4f4f), color-stop(50%, #484848), color-stop(100%, #616161));
+  background-image: -webkit-linear-gradient(#ababab, #7d7d7d 10%, #4f4f4f 50%, #484848 50%, #616161);
+  background-image: -moz-linear-gradient(#ababab, #7d7d7d 10%, #4f4f4f 50%, #484848 50%, #616161);
+  background-image: -o-linear-gradient(#ababab, #7d7d7d 10%, #4f4f4f 50%, #484848 50%, #616161);
+  background-image: -ms-linear-gradient(#ababab, #7d7d7d 10%, #4f4f4f 50%, #484848 50%, #616161);
+  background-image: linear-gradient(#ababab, #7d7d7d 10%, #4f4f4f 50%, #484848 50%, #616161);
+  border-color: #313131;
+  text-shadow: #171717 0px 1px 1px;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
+  opacity: 0.7;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  cursor: default !important;
+}
+/* line 116, ../../../.rvm/gems/ruby-1.9.2-p290/gems/fancy-buttons-1.1.2/lib/stylesheets/_fancy-buttons.sass */
+button.disabled, button.disabled:visited, button[disabled], button[disabled]:visited {
+  color: white;
+}
 
-/* line 15, ../sass/screen.scss */
+/* line 17, ../sass/screen.scss */
 body {
   background: #e0e0e0 url("../images/bg.png");
 }
 
-/* line 17, ../sass/screen.scss */
+/* line 19, ../sass/screen.scss */
 header {
   -moz-border-radius-bottomleft: 9px;
   -webkit-border-bottom-left-radius: 9px;
@@ -479,7 +502,7 @@ header {
   text-align: center;
 }
 
-/* line 24, ../sass/screen.scss */
+/* line 26, ../sass/screen.scss */
 h1 {
   font-family: "Blooming Grove";
   color: #C9332A;
@@ -487,20 +510,20 @@ h1 {
   text-shadow: 1px 2px 1px gray;
 }
 
-/* line 31, ../sass/screen.scss */
+/* line 33, ../sass/screen.scss */
 h2, h3, h4 {
   font-family: "Blooming Grove";
   color: #C9332A;
 }
 
-/* line 36, ../sass/screen.scss */
+/* line 38, ../sass/screen.scss */
 footer {
   margin: 70px 0 30px;
   text-align: center;
   color: gray;
 }
 
-/* line 38, ../sass/screen.scss */
+/* line 40, ../sass/screen.scss */
 #main {
   width: 700px;
   margin: 0 auto;
@@ -509,12 +532,12 @@ footer {
   padding-bottom: 15px;
 }
 
-/* line 43, ../sass/screen.scss */
+/* line 45, ../sass/screen.scss */
 #help {
   margin-top: 70px;
 }
 
-/* line 47, ../sass/screen.scss */
+/* line 49, ../sass/screen.scss */
 #quiz {
   display: inline;
   float: left;
@@ -525,7 +548,7 @@ footer {
 * html #quiz {
   overflow-x: hidden;
 }
-/* line 49, ../sass/screen.scss */
+/* line 51, ../sass/screen.scss */
 #quiz #deck {
   background: white;
   width: 95%;
@@ -542,51 +565,60 @@ footer {
   -khtml-border-radius: 4px;
   border-radius: 4px;
   border: 1px solid #E3E3E3;
-  padding: 5px;
+  padding: 5px 5px 60px;
 }
-/* line 50, ../sass/screen.scss */
+/* line 52, ../sass/screen.scss */
 #quiz #deck #index {
   text-align: right;
   color: gray;
   font-weight: normal;
   font-size: 11pt;
-}
-/* line 56, ../sass/screen.scss */
-#quiz #deck #prononciation {
-  margin: 70px 0;
-  font-size: 35px;
+  margin-bottom: 40px;
 }
 /* line 59, ../sass/screen.scss */
+#quiz #deck #prononciation {
+  font-size: 35px;
+}
+/* line 61, ../sass/screen.scss */
 #quiz #deck #prononciation.favorite {
   color: #E5C227;
 }
-/* line 60, ../sass/screen.scss */
+/* line 62, ../sass/screen.scss */
 #quiz #deck #prononciation.wrong {
   color: #E22B28;
 }
-/* line 61, ../sass/screen.scss */
+/* line 63, ../sass/screen.scss */
 #quiz #deck #prononciation.right {
   color: #24AA22;
 }
-/* line 72, ../sass/screen.scss */
+/* line 65, ../sass/screen.scss */
+#quiz #deck #hint {
+  display: none;
+}
+/* line 68, ../sass/screen.scss */
+#quiz #deck #answer {
+  display: none;
+  font-size: 60px;
+}
+/* line 82, ../sass/screen.scss */
 #quiz #deck-options {
   margin: 20px auto 0;
   text-align: center;
 }
-/* line 76, ../sass/screen.scss */
+/* line 86, ../sass/screen.scss */
 #quiz #icons {
   height: 40px;
 }
-/* line 78, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 #quiz #icons img {
   margin-right: 5px;
 }
-/* line 79, ../sass/screen.scss */
+/* line 89, ../sass/screen.scss */
 #quiz #icons img:hover {
   cursor: pointer;
 }
 
-/* line 83, ../sass/screen.scss */
+/* line 93, ../sass/screen.scss */
 #options {
   display: inline;
   float: left;
@@ -599,17 +631,17 @@ footer {
 * html #options {
   overflow-x: hidden;
 }
-/* line 87, ../sass/screen.scss */
+/* line 97, ../sass/screen.scss */
 #options ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-/* line 91, ../sass/screen.scss */
+/* line 101, ../sass/screen.scss */
 #options ul li {
   margin-top: 5px;
 }
-/* line 93, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 #options #levels {
   height: 115px;
 }
