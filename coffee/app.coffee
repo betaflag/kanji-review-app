@@ -69,6 +69,8 @@ QuizView = Backbone.View.extend({
   initialize: ->
     # When the model state is changed, redraw the view
     this.options.model.bind("change:state", this.updateState, this)
+    #_.bindAll(this, 'on_keypress');
+    $(document).bind('keypress', this.keypress);
 
   events: {
     "click #showHint": "showHint"
@@ -93,6 +95,19 @@ QuizView = Backbone.View.extend({
     this.updateState()
     return this.el
 
+  keypress: (event) ->
+    console.log(event.which)
+    switch(event.which)
+      when 32
+        event.preventDefault()
+        $("#answer").slideDown("slow")
+        $("#showAnswer").attr("disabled", "disabled")
+        #this.showAnswer()
+      when 104
+        event.preventDefault()
+        $("#hint .inner").fadeIn("slow")
+        $("#showHint").attr("disabled", "disabled")
+
   # Update the view according to the model state
   updateState: ->
     # Remove classes of the prononciation section
@@ -105,8 +120,9 @@ QuizView = Backbone.View.extend({
   showHint: -> 
     $("#hint .inner").fadeIn("slow")
     $("#showHint").attr("disabled", "disabled")
+
   # Show the answer (the kanji)
-  showAnswer: -> 
+  showAnswer: (event) ->
     $("#answer").slideDown("slow")
     $("#showAnswer").attr("disabled", "disabled")
   # Navigate to the correct routes
