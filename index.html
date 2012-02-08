@@ -86,6 +86,16 @@
         </ul>
       </p>
 
+      <h3>Keyboard shortcuts</h3>
+      <p>
+        <ul>
+            <li><strong>spacebar</strong> Show the answer
+            <li><strong>h</strong> Show the hint
+            <li><strong>&larr; (left arrow)</strong> Previous card
+            <li><strong>&rarr; (right arrow)</strong> Next card
+        </ul>
+      </p>
+
       <h3>Options</h3>
       <p>
         <ul>
@@ -97,6 +107,7 @@
 
       <h3>Levels</h3>
       <p>The levels select box allows you to filter cards according to the levels you wish to review. Hold the CTRL (CMD on Mac) or SHIFT key to select multiple levels.</p>
+      <p>If the "Only quiz" option is checked, only kanji from the quiz are selected.</p>
 
       <h3>Show / Hide Cards</h3>
       <p>This option lets you show or hide cards marked with one of these markers : Favorite, right and wrong. Check those you want to see, others will be hidden.</p>
@@ -149,7 +160,7 @@
       <% })) %>
     </select>
     <br />
-    <label>Only quiz</label> <input type="checkbox" name="quizFilter" id="quizFilter" />
+    <label for="quizFilter">Only quiz</label> <input type="checkbox" name="quizFilter" id="quizFilter" />
     <br /><br />
     <h3>Show/Hide cards</h3>
     <ul id="states">
