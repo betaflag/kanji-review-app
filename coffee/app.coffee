@@ -33,6 +33,7 @@ OptionView = Backbone.View.extend({
     "click #wrong": "filterModels"
     "click #normal": "filterModels"
     "change #levels": "filterModels"
+    "click #quizFilter": "filterModels"
   }
 
   template: _.template($("#options-view-tmpl").html())
@@ -51,11 +52,14 @@ OptionView = Backbone.View.extend({
   filterModels: ->
     levels = _.map($("#levels option:selected"), (option) -> $(option).attr('value'))
     states = _.map($("#states input:checked"), (input) -> $(input).attr('id'))
+    quiz = $("#quizFilter").attr("checked") == "checked"
+    console.log(quiz)
 
     # Filter model to selected states
     models = _.filter(quizCollection.models, (model) ->
       model.get('niveau').toString() in levels &&
-      model.get('state') in states
+      model.get('state') in states &&
+      (!quiz || model.get('quiz') == "oui")
     )
 
     quizRouter.collection = new QuizCollection().reset(models)

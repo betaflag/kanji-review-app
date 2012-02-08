@@ -37,7 +37,8 @@
       "click #right": "filterModels",
       "click #wrong": "filterModels",
       "click #normal": "filterModels",
-      "change #levels": "filterModels"
+      "change #levels": "filterModels",
+      "click #quizFilter": "filterModels"
     },
     template: _.template($("#options-view-tmpl").html()),
     el: "#options",
@@ -53,16 +54,18 @@
       return quizRouter.firstQuestion();
     },
     filterModels: function() {
-      var levels, models, states;
+      var levels, models, quiz, states;
       levels = _.map($("#levels option:selected"), function(option) {
         return $(option).attr('value');
       });
       states = _.map($("#states input:checked"), function(input) {
         return $(input).attr('id');
       });
+      quiz = $("#quizFilter").attr("checked") === "checked";
+      console.log(quiz);
       models = _.filter(quizCollection.models, function(model) {
         var _ref, _ref2;
-        return (_ref = model.get('niveau').toString(), __indexOf.call(levels, _ref) >= 0) && (_ref2 = model.get('state'), __indexOf.call(states, _ref2) >= 0);
+        return (_ref = model.get('niveau').toString(), __indexOf.call(levels, _ref) >= 0) && (_ref2 = model.get('state'), __indexOf.call(states, _ref2) >= 0) && (!quiz || model.get('quiz') === "oui");
       });
       quizRouter.collection = new QuizCollection().reset(models);
       return quizRouter.navigate("questions/first", true);
