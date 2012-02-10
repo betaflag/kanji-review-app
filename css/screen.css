@@ -649,3 +649,11 @@ footer {
 #options #levels {
   height: 115px;
 }
+
+/* line 108, ../sass/screen.scss */
+.note {
+  padding: 10px;
+  margin: 30px;
+  border: 1px dashed #C9332A;
+  background: rgba(153, 153, 153, 0.3);
+}
