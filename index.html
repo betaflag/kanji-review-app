@@ -39,9 +39,11 @@
     </header>
 
     <div role="main" id="main">
-      <div id="quiz"></div>
+      <div id="game">
+        <div id="quiz"></div>
+        <div id="score"></div>
+      </div>
       <div id="options"></div>
-      <div id="score"></div>
     </div>
 
     <section id="social">
@@ -132,32 +134,55 @@
   </div>
 
   <script id="quiz-view-tmpl" type="text/template">
-    <div id="deck">
-      <div id="index"><%= quizIndex %> / <%= quizLength %></div>
-      <div id="answer"><%= model.get("kanji") %></div>
-      <div id="prononciation"><%= model.get("prononciation") %></div>
-      <div id="hint"><div class="inner"><%= model.get("hint") %></div></div>
-    </div>
-    <div id="deck-options">
-      <div id="icons">
-        <img src="images/star.png" id="favorite" title="Favorite" />
-        <img src="images/thumb_up.png" id="right" title="Right" />
-        <img src="images/thumb_down.png" id="wrong" title="Wrong" />
+    <div id="quiz">
+      <div id="deck">
+        <div id="index"><%= quizIndex %> / <%= quizLength %></div>
+        <div id="answer"><%= model.get("kanji") %></div>
+        <div id="prononciation"><%= model.get("prononciation") %></div>
+        <div id="hint"><div class="inner"><%= model.get("hint") %></div></div>
       </div>
-      <div id="navigation">
-        <button id="previous">&larr; Previous</button>
-        <button id="showHint">Hint</button>
-        <button id="showAnswer">Answer</button>
-        <button id="next">Next &rarr;</button>
+      <div id="deck-options">
+        <div id="icons">
+          <img src="images/star.png" id="favorite" title="Favorite" />
+          <img src="images/thumb_up.png" id="right" title="Right" />
+          <img src="images/thumb_down.png" id="wrong" title="Wrong" />
+        </div>
+        <div id="navigation">
+          <button id="previous">&larr; Previous</button>
+          <button id="showHint">Hint</button>
+          <button id="showAnswer">Answer</button>
+          <button id="next">Next &rarr;</button>
+        </div>
       </div>
     </div>
   </script>
 
   <script id="score-view-tmpl" type="text/template">
-    <ul id="score">
-      <li class="favorite"><%= favorite %></li>
-      <li class="right"><%= right %></li>
-      <li class="wrong"><%= wrong %></li>
+    <ul>
+      <li class="favorite">
+        <p><%= favorite %></p>
+        <% if (favorite > 1) { %> 
+          <p>favorites</p>
+        <% } else { %>
+          <p>favorite</p>
+        <% } %>
+      </li>
+      <li class="right">
+        <p><%= right %></p>
+        <% if (right > 1) { %> 
+          <p>rights</p>
+        <% } else { %>
+          <p>right</p>
+        <% } %>
+      </li>
+      <li class="wrong">
+        <p><%= wrong %></p>
+        <% if (wrong > 1) { %> 
+          <p>wrongs</p>
+        <% } else { %>
+          <p>wrong</p>
+        <% } %>
+      </li>
     </ul>
   </script>
 

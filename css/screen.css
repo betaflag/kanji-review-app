@@ -374,7 +374,7 @@ form.inline p {
   margin-bottom: 0;
 }
 
-/* line 14, ../sass/screen.scss */
+/* line 15, ../sass/screen.scss */
 .container {
   width: 700px;
   margin: 0 auto;
@@ -382,7 +382,7 @@ form.inline p {
   *zoom: 1;
 }
 
-/* line 15, ../sass/screen.scss */
+/* line 16, ../sass/screen.scss */
 button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
@@ -478,12 +478,12 @@ button.disabled, button.disabled:visited, button[disabled], button[disabled]:vis
   color: white;
 }
 
-/* line 17, ../sass/screen.scss */
+/* line 18, ../sass/screen.scss */
 body {
   background: #e0e0e0 url("../images/bg.png");
 }
 
-/* line 19, ../sass/screen.scss */
+/* line 20, ../sass/screen.scss */
 header {
   -moz-border-radius-bottomleft: 9px;
   -webkit-border-bottom-left-radius: 9px;
@@ -502,7 +502,7 @@ header {
   text-align: center;
 }
 
-/* line 26, ../sass/screen.scss */
+/* line 27, ../sass/screen.scss */
 h1 {
   font-family: "Blooming Grove";
   color: #C9332A;
@@ -510,20 +510,20 @@ h1 {
   text-shadow: 1px 2px 1px gray;
 }
 
-/* line 33, ../sass/screen.scss */
+/* line 34, ../sass/screen.scss */
 h2, h3, h4 {
   font-family: "Blooming Grove";
   color: #C9332A;
 }
 
-/* line 38, ../sass/screen.scss */
+/* line 39, ../sass/screen.scss */
 footer {
   margin: 70px 0 30px;
   text-align: center;
   color: gray;
 }
 
-/* line 40, ../sass/screen.scss */
+/* line 41, ../sass/screen.scss */
 #main {
   width: 700px;
   margin: 0 auto;
@@ -532,23 +532,24 @@ footer {
   padding-bottom: 15px;
 }
 
-/* line 45, ../sass/screen.scss */
+/* line 46, ../sass/screen.scss */
 #help {
   margin-top: 70px;
 }
 
-/* line 49, ../sass/screen.scss */
-#quiz {
+/* line 50, ../sass/screen.scss */
+#game {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 522.5px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.7/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html #quiz {
+* html #game {
   overflow-x: hidden;
 }
-/* line 51, ../sass/screen.scss */
+
+/* line 55, ../sass/screen.scss */
 #quiz #deck {
   background: white;
   width: 95%;
@@ -567,7 +568,7 @@ footer {
   border: 1px solid #E3E3E3;
   padding: 5px 5px 60px;
 }
-/* line 52, ../sass/screen.scss */
+/* line 56, ../sass/screen.scss */
 #quiz #deck #index {
   text-align: right;
   color: gray;
@@ -575,54 +576,54 @@ footer {
   font-size: 11pt;
   margin-bottom: 40px;
 }
-/* line 59, ../sass/screen.scss */
+/* line 63, ../sass/screen.scss */
 #quiz #deck #prononciation {
   font-size: 30px;
 }
-/* line 61, ../sass/screen.scss */
+/* line 65, ../sass/screen.scss */
 #quiz #deck #prononciation.favorite {
   color: #E5C227;
 }
-/* line 62, ../sass/screen.scss */
+/* line 66, ../sass/screen.scss */
 #quiz #deck #prononciation.wrong {
   color: #E22B28;
 }
-/* line 63, ../sass/screen.scss */
+/* line 67, ../sass/screen.scss */
 #quiz #deck #prononciation.right {
   color: #24AA22;
 }
-/* line 65, ../sass/screen.scss */
+/* line 69, ../sass/screen.scss */
 #quiz #deck #hint {
   height: 15px;
 }
-/* line 67, ../sass/screen.scss */
+/* line 71, ../sass/screen.scss */
 #quiz #deck #hint .inner {
   display: none;
 }
-/* line 71, ../sass/screen.scss */
+/* line 75, ../sass/screen.scss */
 #quiz #deck #answer {
   display: none;
   font-size: 60px;
 }
-/* line 84, ../sass/screen.scss */
+/* line 88, ../sass/screen.scss */
 #quiz #deck-options {
   margin: 20px auto 0;
   text-align: center;
 }
-/* line 88, ../sass/screen.scss */
+/* line 92, ../sass/screen.scss */
 #quiz #icons {
   height: 40px;
 }
-/* line 90, ../sass/screen.scss */
+/* line 94, ../sass/screen.scss */
 #quiz #icons img {
   margin-right: 5px;
 }
-/* line 91, ../sass/screen.scss */
+/* line 95, ../sass/screen.scss */
 #quiz #icons img:hover {
   cursor: pointer;
 }
 
-/* line 95, ../sass/screen.scss */
+/* line 99, ../sass/screen.scss */
 #options {
   display: inline;
   float: left;
@@ -635,25 +636,74 @@ footer {
 * html #options {
   overflow-x: hidden;
 }
-/* line 99, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 #options ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
 }
-/* line 103, ../sass/screen.scss */
+/* line 107, ../sass/screen.scss */
 #options ul li {
   margin-top: 5px;
 }
-/* line 105, ../sass/screen.scss */
+/* line 109, ../sass/screen.scss */
 #options #levels {
   height: 115px;
 }
 
-/* line 108, ../sass/screen.scss */
+/* line 112, ../sass/screen.scss */
 .note {
   padding: 10px;
   margin: 30px;
   border: 1px dashed #C9332A;
   background: rgba(153, 153, 153, 0.3);
+}
+
+/* line 119, ../sass/screen.scss */
+#score {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+  margin: 30px 0 0;
+  font-size: 18pt;
+}
+/* line 60, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#score li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 48, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#score li:first-child, #score li.first {
+  padding-left: 0;
+}
+/* line 49, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#score li:last-child {
+  padding-right: 0;
+}
+/* line 50, ../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.11.7/frameworks/compass/stylesheets/compass/typography/lists/_horizontal-list.scss */
+#score li.last {
+  padding-right: 0;
+}
+/* line 122, ../sass/screen.scss */
+#score ul {
+  width: 400px;
+  margin: auto;
+}
+/* line 127, ../sass/screen.scss */
+#score li {
+  text-align: center;
+  padding: 10px !important;
+  margin: 10px;
+}
+/* line 128, ../sass/screen.scss */
+#score li p {
+  margin: 0;
 }
