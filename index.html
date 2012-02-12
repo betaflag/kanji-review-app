@@ -41,6 +41,7 @@
     <div role="main" id="main">
       <div id="quiz"></div>
       <div id="options"></div>
+      <div id="score"></div>
     </div>
 
     <section id="social">
@@ -150,6 +151,14 @@
         <button id="next">Next &rarr;</button>
       </div>
     </div>
+  </script>
+
+  <script id="score-view-tmpl" type="text/template">
+    <ul id="score">
+      <li class="favorite"><%= favorite %></li>
+      <li class="right"><%= right %></li>
+      <li class="wrong"><%= wrong %></li>
+    </ul>
   </script>
 
   <script id="options-view-tmpl" type="text/template">

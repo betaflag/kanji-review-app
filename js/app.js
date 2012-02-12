@@ -1,12 +1,13 @@
 (function() {
-  var OptionView, QuizCollection, QuizModel, QuizRouter, QuizView,
+  var OptionView, QuizCollection, QuizModel, QuizRouter, QuizView, ScoreView,
     __indexOf = Array.prototype.indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   QuizModel = Backbone.Model.extend({
     initialize: function() {
-      return this.set({
+      this.set({
         "state": "normal"
       });
+      return this.bind("change:state", scoreView.render);
     },
     toggleState: function(state) {
       if (this.get("state") === state) state = void 0;
@@ -149,6 +150,38 @@
     }
   });
 
+  ScoreView = Backbone.View.extend({
+    initialize: function() {
+      return _.bindAll(this);
+    },
+    el: "#score",
+    favorite: 0,
+    right: 0,
+    wrong: 0,
+    template: _.template($('#score-view-tmpl').html()),
+    render: function() {
+      if (window.quizRouter !== void 0) {
+        this.calculate();
+        return $(this.el).html(this.template({
+          "favorite": this.favorite,
+          "right": this.right,
+          "wrong": this.wrong
+        }));
+      }
+    },
+    calculate: function() {
+      this.favorite = quizRouter.collection.filter(function(model) {
+        return model.get("state") === "favorite";
+      }).length;
+      this.right = quizRouter.collection.filter(function(model) {
+        return model.get("state") === "right";
+      }).length;
+      return this.wrong = quizRouter.collection.filter(function(model) {
+        return model.get("state") === "wrong";
+      }).length;
+    }
+  });
+
   QuizRouter = Backbone.Router.extend({
     initialize: function(options) {
       return this.collection = options.collection;
@@ -207,12 +240,14 @@
 
   $(function() {
     return $.getJSON("js/kanji-collection.json", function(data) {
+      window.scoreView = new ScoreView();
       window.quizCollection = new QuizCollection;
       quizCollection.reset(_.shuffle(data));
       window.quizRouter = new QuizRouter({
         collection: quizCollection
       });
       new OptionView().render();
+      scoreView.render();
       return Backbone.history.start();
     });
   });
