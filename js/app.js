@@ -69,6 +69,7 @@
         return (_ref = model.get('niveau').toString(), __indexOf.call(levels, _ref) >= 0) && (_ref2 = model.get('state'), __indexOf.call(states, _ref2) >= 0) && (!quiz || model.get('quiz') === "oui");
       });
       quizRouter.collection = new QuizCollection().reset(models);
+      scoreView.render();
       return quizRouter.navigate("questions/first", true);
     }
   });
@@ -120,9 +121,9 @@
       }
     },
     updateState: function() {
-      $(this.el).children("#deck").children("#prononciation").removeClass();
+      $(this.el).children("#quiz").children("#deck").children("#prononciation").removeClass();
       if (this.model.get("state") !== void 0) {
-        return $(this.el).children("#deck").children("#prononciation").addClass(this.model.get("state"));
+        return $(this.el).children("#quiz").children("#deck").children("#prononciation").addClass(this.model.get("state"));
       }
     },
     showHint: function() {

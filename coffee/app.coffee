@@ -65,6 +65,7 @@ OptionView = Backbone.View.extend({
     )
 
     quizRouter.collection = new QuizCollection().reset(models)
+    scoreView.render()
     quizRouter.navigate("questions/first", true)
 })
 
@@ -122,10 +123,10 @@ QuizView = Backbone.View.extend({
   # Update the view according to the model state
   updateState: ->
     # Remove classes of the prononciation section
-    $(this.el).children("#deck").children("#prononciation").removeClass()
+    $(this.el).children("#quiz").children("#deck").children("#prononciation").removeClass()
     # If state is setted, add it as a class
     if (this.model.get("state") != undefined)
-      $(this.el).children("#deck").children("#prononciation").addClass(this.model.get("state"))
+      $(this.el).children("#quiz").children("#deck").children("#prononciation").addClass(this.model.get("state"))
 
   # Show a hint for the kanji
   showHint: -> 
