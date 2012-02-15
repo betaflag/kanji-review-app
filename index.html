@@ -8,10 +8,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-  <title>Kanji Review</title>
-  <meta name="description" content="Kanji review game">
+  <title>kanji review</title>
+  <meta name="description" content="kanji review">
   <meta name="author" content="Nicolas Lupien">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="keywords" content="kanji, review, learn, japanese, jlpt, genki">
 
   <link rel="stylesheet" href="css/screen.css">
 
@@ -38,7 +39,10 @@
     </header>
 
     <div role="main" id="main">
-      <div id="quiz"></div>
+      <div id="game">
+        <div id="quiz"></div>
+        <div id="score"></div>
+      </div>
       <div id="options"></div>
     </div>
 
@@ -59,9 +63,14 @@
     </section>
 
     <section id="help">
-      <h2>How does it work ?</h2>
+      <h2>JLPT</h2>
+      <div class="note">
+        <strong>Note to JLPT learners:</strong> for N5, you can review levels 3 to 12, and for N4 you want to review levels 13 to 23. For higher levels unfortunately you will have to find the kanji somewhere else. 
+      </div>
+
+      <h2>How does kanji review work ?</h2>
       <p>This is a simple application designed to review and learn japanese kanji.</p>
-      <p>All kenji are from the Genki textbook. Each level includes 2 lessons.</p>
+      <p>All kanji are from the Genki textbook. Each level includes 1 lesson.</p>
 
       <h3>Cards</h3>
       <p>You get a deck of cards showing the prononciation and you have to guess which kanji it is.</p>
@@ -120,30 +129,61 @@
     </section>
 
     <footer>
-      &copy; 2011 Kanji Review - Nicolas Lupien
+      &copy; 2011 kanji review - Nicolas Lupien
     </footer>
   </div>
 
   <script id="quiz-view-tmpl" type="text/template">
-    <div id="deck">
-      <div id="index"><%= quizIndex %> / <%= quizLength %></div>
-      <div id="answer"><%= model.get("kanji") %></div>
-      <div id="prononciation"><%= model.get("prononciation") %></div>
-      <div id="hint"><div class="inner"><%= model.get("hint") %></div></div>
-    </div>
-    <div id="deck-options">
-      <div id="icons">
-        <img src="images/star.png" id="favorite" title="Favorite" />
-        <img src="images/thumb_up.png" id="right" title="Right" />
-        <img src="images/thumb_down.png" id="wrong" title="Wrong" />
+    <div id="quiz">
+      <div id="deck">
+        <div id="index"><%= quizIndex %> / <%= quizLength %></div>
+        <div id="answer"><%= model.get("kanji") %></div>
+        <div id="prononciation"><%= model.get("prononciation") %></div>
+        <div id="hint"><div class="inner"><%= model.get("hint") %></div></div>
       </div>
-      <div id="navigation">
-        <button id="previous">&larr; Previous</button>
-        <button id="showHint">Hint</button>
-        <button id="showAnswer">Answer</button>
-        <button id="next">Next &rarr;</button>
+      <div id="deck-options">
+        <div id="icons">
+          <img src="images/star.png" id="favorite" title="Favorite" />
+          <img src="images/thumb_up.png" id="right" title="Right" />
+          <img src="images/thumb_down.png" id="wrong" title="Wrong" />
+        </div>
+        <div id="navigation">
+          <button id="previous">&larr; Previous</button>
+          <button id="showHint">Hint</button>
+          <button id="showAnswer">Answer</button>
+          <button id="next">Next &rarr;</button>
+        </div>
       </div>
     </div>
+  </script>
+
+  <script id="score-view-tmpl" type="text/template">
+    <ul>
+      <li class="favorite">
+        <p><%= favorite %></p>
+        <% if (favorite > 1) { %> 
+          <p>favorites</p>
+        <% } else { %>
+          <p>favorite</p>
+        <% } %>
+      </li>
+      <li class="right">
+        <p><%= right %></p>
+        <% if (right > 1) { %> 
+          <p>rights</p>
+        <% } else { %>
+          <p>right</p>
+        <% } %>
+      </li>
+      <li class="wrong">
+        <p><%= wrong %></p>
+        <% if (wrong > 1) { %> 
+          <p>wrongs</p>
+        <% } else { %>
+          <p>wrong</p>
+        <% } %>
+      </li>
+    </ul>
   </script>
 
   <script id="options-view-tmpl" type="text/template">

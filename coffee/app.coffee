@@ -2,8 +2,9 @@
 # Attributes : niveau, prononciation, kanji, hint
 # It also contains one state (favorite, right, wrong, undefined)
 QuizModel = Backbone.Model.extend({
-  initialize: -> this.set({"state": "normal"})
-
+  initialize: -> 
+    this.set({"state": "normal"})
+    this.bind("change:state", scoreView.render)
   # Set or remove a state
   toggleState: (state) ->
     state = undefined if this.get("state") == state
@@ -11,6 +12,7 @@ QuizModel = Backbone.Model.extend({
 
   level: -> parseInt(this.get("niveau"))
 })
+
 
 # This collection is like a deck of cards. 
 # It contains all the QuizModel. 
@@ -63,6 +65,7 @@ OptionView = Backbone.View.extend({
     )
 
     quizRouter.collection = new QuizCollection().reset(models)
+    scoreView.render()
     quizRouter.navigate("questions/first", true)
 })
 
@@ -111,7 +114,7 @@ QuizView = Backbone.View.extend({
           return this.showAnswer()
       when 104 # 'h'
         return this.showHint()
-    
+
     switch(event.keyCode)
       when 39 then this.nextQuestion()
       when 37 then this.previousQuestion()
@@ -120,10 +123,10 @@ QuizView = Backbone.View.extend({
   # Update the view according to the model state
   updateState: ->
     # Remove classes of the prononciation section
-    $(this.el).children("#deck").children("#prononciation").removeClass()
+    $(this.el).children("#quiz").children("#deck").children("#prononciation").removeClass()
     # If state is setted, add it as a class
     if (this.model.get("state") != undefined)
-      $(this.el).children("#deck").children("#prononciation").addClass(this.model.get("state"))
+      $(this.el).children("#quiz").children("#deck").children("#prononciation").addClass(this.model.get("state"))
 
   # Show a hint for the kanji
   showHint: -> 
@@ -141,6 +144,33 @@ QuizView = Backbone.View.extend({
   toggleFavorite: -> this.model.toggleState("favorite")
   toggleRight: -> this.model.toggleState("right")
   toggleWrong: -> this.model.toggleState("wrong")
+})
+
+ScoreView = Backbone.View.extend({
+  initialize: ->
+    _.bindAll(this)
+
+  el: "#score"
+
+  favorite: 0
+  right: 0
+  wrong: 0
+
+  template: _.template($('#score-view-tmpl').html())
+
+  render: ->
+    if window.quizRouter != undefined
+      this.calculate()
+      $(this.el).html(this.template({
+        "favorite": this.favorite
+        "right": this.right
+        "wrong": this.wrong
+      }))
+
+  calculate: ->
+    this.favorite = quizRouter.collection.filter((model) -> model.get("state") == "favorite").length
+    this.right = quizRouter.collection.filter((model) -> model.get("state") == "right").length
+    this.wrong = quizRouter.collection.filter((model) -> model.get("state") == "wrong").length
 })
 
 # This is the main router of the application
@@ -207,6 +237,7 @@ QuizRouter = Backbone.Router.extend({
 $ ->
   # Load the data and start the quiz
   $.getJSON("js/kanji-collection.json", (data) -> 
+    window.scoreView = new ScoreView()
     # Initialize the collection
     window.quizCollection = new QuizCollection
     # Set the json models (shuffled)
@@ -215,6 +246,8 @@ $ ->
     window.quizRouter = new QuizRouter({ collection: quizCollection })
     # Render the options
     new OptionView().render()
+    # Render the quiz score
+    scoreView.render()
     # Start the application
     Backbone.history.start()
   )

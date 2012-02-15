@@ -4,6 +4,7 @@
 @import "blueprint/scaffolding";
 @import "compass/css3";
 @import "fancy-buttons";
+@import "compass/typography/lists/horizontal-list";
 
 @include font-face("Blooming Grove", font-files("bgrove.ttf", truetype, "bgrovbe.otf", opentype));
 @include blueprint-typography;
@@ -46,8 +47,11 @@ footer { margin: 70px 0 30px; text-align: center; color: gray; }
   margin-top: 70px;
 }
 
-#quiz {
+#game {
   @include column(18);
+}
+
+#quiz {
   #deck {
     #index { 
       text-align: right;
@@ -103,4 +107,31 @@ footer { margin: 70px 0 30px; text-align: center; color: gray; }
     li { margin-top: 5px; }
   }
   #levels { height: 115px; }
+}
+
+.note {
+  padding: 10px;
+  margin: 30px;
+  border: 1px dashed #C9332A;
+  background: rgba(153, 153, 153, 0.3);
+}
+
+#score {
+  @include horizontal-list;
+  margin: 30px 0 0;
+  ul {
+    width: 350px;
+    margin: auto;
+  }
+
+  li {
+    p { margin: 0 }
+    text-align: center;
+    padding: 10px !important;
+    margin: 10px;
+  }
+  font-size: 18pt;
+  #favorite {
+  
+  }
 }
