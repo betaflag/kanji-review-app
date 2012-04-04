@@ -208,7 +208,7 @@ QuizRouter = Backbone.Router.extend({
   redrawQuestion: -> this.navigate("questions/" + (this.question + 1), true)
   # Shuffle questions and rewind the deck
   shuffleQuestion: -> 
-    this.collection.models = _.shuffle(quizCollection.models)
+    this.collection.models = _.shuffle(this.collection.models)
     this.navigate("questions/first", true)
   # Go to previous question
   previousQuestion: ->

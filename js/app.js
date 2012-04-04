@@ -213,7 +213,7 @@
       return this.navigate("questions/" + (this.question + 1), true);
     },
     shuffleQuestion: function() {
-      this.collection.models = _.shuffle(quizCollection.models);
+      this.collection.models = _.shuffle(this.collection.models);
       return this.navigate("questions/first", true);
     },
     previousQuestion: function() {
